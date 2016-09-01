@@ -5,7 +5,7 @@ var app = express();
 
 app.get('/', function(req, res) {
   console.log("start");
-  var sleepTime = process.env.ENV_SLEEP_SECONDS || 15;
+  var sleepTime = (process.env.ENV_SLEEP_SECONDS || 15) * 1000;
   setTimeout(function(){
     console.log("Sleeping for " + sleepTime);
     res.status(200).send('Hello from the container').end();
