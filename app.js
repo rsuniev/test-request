@@ -4,10 +4,12 @@ var ENV_SLEEP_SECONDS = process.env.ENV_SLEEP_SECONDS || 15;
 var app = express();
 
 app.get('/', function(req, res) {
+  console.log("start");
+  val sleepTime = ENV_SLEEP_SECOND*1000;
   setTimeout(function(){
-    console.log("Sleeping for " + ENV_SLEEP_SECONDS + " seconds");
+    console.log("Sleeping for " + sleepTime);
     res.status(200).send('Hello from the container').end();
-  },ENV_SLEEP_SECOND * 1000);
+  },sleepTime);
 });
 
 var server = app.listen(8080, function() {
