@@ -1,11 +1,11 @@
 var express = require('express');
 var _ = require('underscore');
-var ENV_SLEEP_SECONDS = process.env.ENV_SLEEP_SECONDS || 15;
+//var ENV_SLEEP_SECONDS = process.env.ENV_SLEEP_SECONDS || 15;
 var app = express();
 
 app.get('/', function(req, res) {
   console.log("start");
-  var sleepTime = ENV_SLEEP_SECOND*1000;
+  var sleepTime = process.env.ENV_SLEEP_SECONDS || 15;
   setTimeout(function(){
     console.log("Sleeping for " + sleepTime);
     res.status(200).send('Hello from the container').end();
